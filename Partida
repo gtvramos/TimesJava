@@ -1,0 +1,92 @@
+import java.util.Date;
+import java.util.Random;
+import java.util.Scanner;
+
+public class Partida {
+private Time timeLocal;
+private Time timeVisitante;
+private int scoreVisitante;
+private int scoreLocal;
+private Date dataPartida;
+
+public Partida() {
+	
+}
+
+public Partida(String timeLocal , String timeVisitante) {
+	Random r = new Random();
+	this.timeLocal.setNome(timeLocal);
+	this.timeVisitante.setNome(timeVisitante);
+	this.scoreLocal = r.nextInt(11);
+	this.scoreVisitante = r.nextInt(11);
+	if(scoreLocal>scoreVisitante) {
+		this.timeLocal.setQtdVitorias(1);
+		this.timeLocal.setQtdPontos(3);
+		this.timeVisitante.setQtdDerrotas(1);
+	}
+	if(scoreLocal==scoreVisitante) {
+		this.timeLocal.setQtdEmpates(1);
+		this.timeVisitante.setQtdEmpates(1);
+		this.timeLocal.setQtdPontos(1);
+		this.timeVisitante.setQtdPontos(1);
+	}
+	if(scoreLocal<scoreVisitante) {
+		this.timeLocal.setQtdDerrotas(1);
+		this.timeVisitante.setQtdPontos(3);
+		this.timeVisitante.setQtdVitorias(1);
+	}
+    
+}
+
+public Time getTimeLocal() {
+	return timeLocal;
+}
+
+public void setTimeLocal(Time timeLocal) {
+	this.timeLocal = timeLocal;
+}
+
+public Time getTimeVisitante() {
+	return timeVisitante;
+}
+
+public void setTimeVisitante(Time timeVisitante) {
+	this.timeVisitante = timeVisitante;
+}
+
+public int getScoreVisitante() {
+	return scoreVisitante;
+}
+
+public void setScoreVisitante(int scoreVisitante) {
+	this.scoreVisitante = scoreVisitante;
+}
+
+public int getScoreLocal() {
+	return scoreLocal;
+}
+
+public void setScoreLocal(int scoreLocal) {
+	this.scoreLocal = scoreLocal;
+}
+
+public Date getDataPartida() {
+	return dataPartida;
+}
+
+public void setDataPartida(Date dataPartida) {
+	this.dataPartida = dataPartida;
+}
+
+public static void main(String[] args) {
+	// TODO Auto-generated method stub
+String timeLocal;
+String timeVisitante;
+Scanner input = new Scanner(System.in);
+System.out.println("Entre com o time local:");
+timeLocal=(input.nextLine());
+System.out.println("Entre com o time visitante:");
+timeVisitante=(input.nextLine());
+Partida p = new Partida(timeLocal,timeVisitante);
+}
+}
