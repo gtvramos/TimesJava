@@ -13,10 +13,10 @@ public Partida() {
 	
 }
 
-public Partida(String timeLocal , String timeVisitante) {
+public Partida(Time timeLocal, Time timeVisitante) {
 	Random r = new Random();
-	this.timeLocal.setNome(timeLocal);
-	this.timeVisitante.setNome(timeVisitante);
+	this.timeLocal = timeLocal;
+	this.timeVisitante = timeVisitante;
 	this.scoreLocal = r.nextInt(11);
 	this.scoreVisitante = r.nextInt(11);
 	if(scoreLocal>scoreVisitante) {
@@ -80,13 +80,16 @@ public void setDataPartida(Date dataPartida) {
 
 public static void main(String[] args) {
 	// TODO Auto-generated method stub
-String timeLocal;
-String timeVisitante;
+Time t1 = new Time();
+Time t2 = new Time();
 Scanner input = new Scanner(System.in);
 System.out.println("Entre com o time local:");
-timeLocal=(input.nextLine());
+t1.setNome(input.nextLine());
 System.out.println("Entre com o time visitante:");
-timeVisitante=(input.nextLine());
-Partida p = new Partida(timeLocal,timeVisitante);
+t2.setNome(input.nextLine());
+Partida p = new Partida(t1,t2);
+System.out.printf("%s \nVitorias:%d,Empates:%d,Derrotas:%d,Pontos:%d",t1.getNome(),t1.getQtdVitorias(),t1.getQtdEmpates(),t1.getQtdDerrotas(),t1.getQtdPontos());
+System.out.printf("\n%s \nVitorias:%d,Empates:%d,Derrotas:%d,Pontos:%d",t2.getNome(),t2.getQtdVitorias(),t2.getQtdEmpates(),t2.getQtdDerrotas(),t2.getQtdPontos());
 }
 }
+
