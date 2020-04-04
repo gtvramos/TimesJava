@@ -93,6 +93,7 @@ Partida p = new Partida();
 p.iniciarPartida(t1,t2);
 p.mostrarResultado();
 p.finalizarPartida();
+ System.out.println("********** Integrantes: Gustavo / Renato / Jader *********");
 }
 }
 
